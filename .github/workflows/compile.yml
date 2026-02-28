@@ -1,0 +1,17 @@
+name: Compile and Run C & Rust
+
+on: [push]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      # --- Cのコンパイルと実行 ---
+      - name: Compile and run C
+        run: |
+          gcc ./tests/hello.c -o hello_c
+          ./hello_c
